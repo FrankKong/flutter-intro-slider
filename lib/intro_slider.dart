@@ -709,7 +709,7 @@ class IntroSliderState extends State<IntroSlider>
       decoration: backgroundImage != null
           ? BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(backgroundImage),
+                image: backgroundImage.indexOf(RegExp("[a-zA-z]+://[^\s]*"))<0?AssetImage(backgroundImage):network_image.NetworkImage(backgroundImage),
                 fit: backgroundImageFit ?? BoxFit.cover,
                 colorFilter: ColorFilter.mode(
                   backgroundOpacityColor != null
